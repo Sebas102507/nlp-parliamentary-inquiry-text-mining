@@ -56,17 +56,20 @@ The project is designed as an end-to-end analytical report: from raw document in
 
 ## Python Environment
 
+Use Python 3.12 for best compatibility with spaCy + NER in this project.
+
 Create and activate the local virtual environment:
 
 ```bash
-python3 -m venv .venv
+python3.12 -m venv .venv
 source .venv/bin/activate
 ```
 
-Install required libraries (example starter set):
+Install required libraries:
 
 ```bash
-pip install jupyter pandas numpy matplotlib seaborn nltk scikit-learn
+pip install -r requirements.txt
+python -m spacy download en_core_web_sm
 ```
 
 ## Run the Report
@@ -78,6 +81,31 @@ jupyter notebook
 ```
 
 Then open `Parliamentary_Inquiry_Text_Mining_Report.ipynb` and run cells from top to bottom.
+
+## Troubleshooting (macOS SSL / NLTK downloads)
+
+If you see SSL certificate errors while downloading NLTK resources (for example `CERTIFICATE_VERIFY_FAILED`), run:
+
+```bash
+open "/Applications/Python 3.12/Install Certificates.command"
+```
+
+If errors persist, export `certifi` certificates before starting Jupyter:
+
+```bash
+source .venv/bin/activate
+export SSL_CERT_FILE="$(python -c 'import certifi; print(certifi.where())')"
+export REQUESTS_CA_BUNDLE="$SSL_CERT_FILE"
+jupyter notebook
+```
+
+Optional notebook-level fallback (run once before `nltk.download(...)`):
+
+```python
+import os, certifi
+os.environ["SSL_CERT_FILE"] = certifi.where()
+os.environ["REQUESTS_CA_BUNDLE"] = certifi.where()
+```
 
 ## Expected Outputs
 

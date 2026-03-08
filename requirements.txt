@@ -1,0 +1,10 @@
+jupyter
+numpy
+pandas
+matplotlib
+seaborn
+nltk
+pypdf
+scikit-learn
+wordcloud
+spacy
