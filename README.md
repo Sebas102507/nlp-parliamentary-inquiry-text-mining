@@ -17,3 +17,12 @@ This project uses Natural Language Processing (NLP) to analyze a large collectio
 - Produce clear visualizations that support interpretation.
 - Explain each method and result in plain language.
 - Synthesize key findings into a concise, evidence-backed conclusion.
+
+## Python Environment
+
+Create and activate the local virtual environment:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
