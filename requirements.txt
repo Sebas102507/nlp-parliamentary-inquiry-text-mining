@@ -8,3 +8,5 @@ pypdf
 scikit-learn
 wordcloud
 spacy
+gensim
+networkx
