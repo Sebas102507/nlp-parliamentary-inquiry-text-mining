@@ -10,3 +10,4 @@ wordcloud
 spacy
 gensim
 networkx
+umap-learn
